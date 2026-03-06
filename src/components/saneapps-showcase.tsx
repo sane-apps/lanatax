@@ -7,25 +7,25 @@ const PRODUCTS = [
   {
     name: "SaneBar",
     icon: "/icons/sanebar-icon.png",
-    url: "https://sanebar.com",
+    url: "https://sanebar.com/?ref=lanatax",
     description: "Hide menu bar clutter with a click. Lock sensitive icons behind Touch ID. The Bartender alternative for macOS Tahoe.",
   },
   {
     name: "SaneClip",
     icon: "/icons/saneclip-icon.png",
-    url: "https://saneclip.com",
+    url: "https://saneclip.com/?ref=lanatax",
     description: "Clipboard history that never leaves your Mac. Touch ID protection, instant search, text transforms.",
   },
   {
     name: "SaneHosts",
     icon: "/icons/sanehosts-icon.png",
-    url: "https://sanehosts.com",
+    url: "https://sanehosts.com/?ref=lanatax",
     description: "Block ads, trackers, and telemetry at the system level. A clean UI for your hosts file.",
   },
   {
     name: "SaneClick",
     icon: "/icons/saneclick-icon.png",
-    url: "https://saneclick.com",
+    url: "https://saneclick.com/?ref=lanatax",
     description: "Right-click power tools for Finder. Resize images, convert files, run scripts — all from context menus.",
   },
 ];
@@ -97,7 +97,7 @@ export function SaneAppsShowcase() {
 
       <div className="mt-[21px] text-center">
         <a
-          href="https://saneapps.com"
+          href="https://saneapps.com/?ref=lanatax"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-[8px] rounded-xl bg-white/5 px-[21px] py-[13px] text-sm font-medium text-white transition-all hover:bg-white/10"

@@ -14,7 +14,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is my data private?",
-    a: "100%. LanaTax runs entirely in your browser. Your wallet address, API key, and transaction data never leave your device. There is no backend server, no database, no analytics, and no tracking. Your Helius API key is stored in your browser's localStorage and is only used to make direct API calls from your machine.",
+    a: "Yes. LanaTax runs entirely in your browser. Your wallet address, API key, and transaction data never leave your device, and there is no backend server or database storing them. The site uses privacy-respecting Cloudflare Web Analytics, but your wallet data and Helius API key stay on your machine and are only used for direct browser-to-Helius requests.",
   },
   {
     q: "Why do I need a Helius API key?",
@@ -38,7 +38,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is LanaTax open source?",
-    a: "The code is fully transparent and inspectable. LanaTax is part of the SaneApps family — tools built with a privacy-first, no-telemetry philosophy. You can verify that no data is sent anywhere by inspecting the network tab in your browser's developer tools.",
+    a: "The code is fully transparent and inspectable. LanaTax is part of the SaneApps family — privacy-first tools with on-device processing by default. You can verify that wallet data is not sent to a backend by inspecting the network tab in your browser's developer tools.",
   },
 ];
 

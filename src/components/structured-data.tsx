@@ -48,7 +48,7 @@ const FAQ_SCHEMA = JSON.stringify({
       name: "Is my data private?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "100 percent. LanaTax runs entirely in your browser. Your wallet address, API key, and transaction data never leave your device. There is no backend server, no database, no analytics, and no tracking.",
+        text: "Yes. LanaTax runs entirely in your browser. Your wallet address, API key, and transaction data never leave your device, and there is no backend server or database storing them. The site uses privacy-respecting Cloudflare Web Analytics, but wallet data stays on your machine.",
       },
     },
     {
