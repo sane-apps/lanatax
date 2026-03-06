@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Track Solana DeFi Taxes - LanaTax</title>
+    <meta name="description" content="Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon">
+    <meta name="theme-color" content="#08080c">
+    <link rel="canonical" href="https://tax.saneapps.com/how-to-track-solana-defi-taxes.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tax.saneapps.com/how-to-track-solana-defi-taxes.html">
+    <meta property="og:title" content="How to Track Solana DeFi Taxes">
+    <meta property="og:description" content="Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.">
+    <meta property="og:image" content="https://tax.saneapps.com/opengraph-image">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="LanaTax">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@saneapps">
+    <meta name="twitter:title" content="How to Track Solana DeFi Taxes">
+    <meta name="twitter:description" content="Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.">
+    <meta name="twitter:image" content="https://tax.saneapps.com/opengraph-image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Track Solana DeFi Taxes",
+        "description": "Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.",
+        "author": { "@type": "Organization", "name": "SaneApps" },
+        "publisher": { "@type": "Organization", "name": "LanaTax", "url": "https://tax.saneapps.com" },
+        "datePublished": "2026-02-22",
+        "dateModified": "2026-02-22"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-primary: #08080c; --bg-secondary: #0f0f16; --bg-card: #16161f; --accent: #06B6D4; --accent-soft: #0E7490; --accent-light: #5CE8FF; --accent-glow: rgba(6, 182, 212, 0.25); --success: #34d399; --text-primary: #f5f5f8; --text-secondary: #c0c0d0; --text-muted: #a0a0b0; --border: #252530; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { padding: 24px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(10, 10, 15, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; }
+        .logo { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: var(--text-primary); }
+        .logo-icon { width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-soft), var(--accent-light)); display: flex; align-items: center; justify-content: center; }
+        .logo-icon svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        article.container { padding: 200px 24px 100px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 24px; line-height: 1.2; }
+        .subtitle { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 60px; max-width: 700px; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        h2 .badge { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 4px 12px; border-radius: 100px; background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-muted); font-weight: 500; }
+        .option-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 40px; }
+        .option-card p { color: var(--text-secondary); margin-bottom: 16px; }
+        .winner-card { border-color: var(--accent); background: linear-gradient(145deg, var(--bg-card) 0%, rgba(6, 182, 212, 0.05) 100%); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden; }
+        .winner-card::before { content: "Practical Tips"; position: absolute; top: 20px; right: -30px; background: var(--accent); color: white; padding: 6px 40px; transform: rotate(45deg); font-size: 0.8rem; font-weight: 700; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .code-block { background: #000; padding: 20px; border-radius: 12px; font-family: monospace; color: #34d399; margin: 20px 0; overflow-x: auto; border: 1px solid var(--border); font-size: 0.95rem; line-height: 1.6; }
+        ul { list-style: none; margin-top: 20px; }
+        li { display: flex; gap: 12px; margin-bottom: 16px; color: var(--text-secondary); }
+        .icon-check { color: var(--success); flex-shrink: 0; font-weight: bold; }
+        .icon-cross { color: #ef4444; flex-shrink: 0; font-weight: bold; }
+        .icon-neutral { color: var(--text-muted); flex-shrink: 0; }
+        .cta-btn { display: inline-block; margin-top: 24px; background: linear-gradient(135deg, var(--accent-soft), var(--accent), var(--accent-light)); color: white; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.2s; box-shadow: 0 4px 24px var(--accent-glow); }
+        .cta-btn:hover { transform: translateY(-2px); }
+        .info-box { background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 20px 24px; margin: 24px 0; color: var(--text-secondary); }
+        .info-box strong { color: var(--accent-light); }
+        .warning-box { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 20px 24px; margin: 24px 0; color: #fca5a5; }
+        .warning-box strong { color: #fca5a5; }
+        .back-link { text-align: center; margin-top: 60px; }
+        .back-link a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .back-link a:hover { color: var(--accent-light); }
+        footer { padding: 40px 0 30px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; margin-top: 60px; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent-light); }
+        .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.85rem; }
+        @media (max-width: 768px) { article.container { padding: 140px 16px 60px; } .option-card { padding: 20px; margin-bottom: 24px; border-radius: 16px; } h1 { font-size: 2rem; } .subtitle { font-size: 1.05rem; margin-bottom: 32px; } .nav-links { gap: 16px; } .code-block { font-size: 0.8rem; padding: 14px; line-height: 1.5; } .cta-btn { display: block; text-align: center; width: 100%; } .info-box, .warning-box { padding: 16px; font-size: 0.9rem; } .winner-card::before { font-size: 0.7rem; padding: 4px 32px; top: 14px; right: -34px; } .logo { font-size: 1.3rem; gap: 10px; } .logo-icon { width: 34px; height: 34px; } .logo-icon svg { width: 18px; height: 18px; } li { gap: 8px; } .footer-links { gap: 16px; } .back-link { margin-top: 40px; } } @media (max-width: 380px) { article.container { padding: 130px 12px 48px; } .option-card { padding: 16px; border-radius: 14px; } h1 { font-size: 1.75rem; } .code-block { font-size: 0.75rem; padding: 10px; } .info-box, .warning-box { padding: 12px; } }
+    
+/* Mobile Guide Guardrails */
+@media (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    nav {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    nav .container,
+    .nav-content,
+    .header-content {
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 12px !important;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-links a {
+        font-size: 0.88rem;
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        padding: 8px 14px;
+    }
+
+    .header,
+    .hero {
+        padding-top: 140px !important;
+    }
+
+    h1 {
+        font-size: clamp(1.9rem, 8.2vw, 2.45rem) !important;
+        line-height: 1.18;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+    }
+
+    h2 {
+        font-size: clamp(1.35rem, 5.9vw, 1.78rem) !important;
+        line-height: 1.24;
+        text-wrap: balance;
+    }
+
+    h3 {
+        font-size: clamp(1.08rem, 4.9vw, 1.34rem) !important;
+        line-height: 1.3;
+        text-wrap: balance;
+    }
+
+    p,
+    li {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+    }
+
+    article,
+    article.container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .subtitle,
+    .tagline,
+    .header p,
+    .guide-card p,
+    .option-card p,
+    .support-text {
+        font-size: 0.98rem !important;
+        line-height: 1.65;
+        max-width: 68ch;
+    }
+
+    .guides-grid,
+    .apps-grid,
+    .faq-grid,
+    .pros-cons,
+    .comparison,
+    .highlight-content,
+    .sustainability-options {
+        grid-template-columns: 1fr !important;
+    }
+
+    .option-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    pre,
+    table,
+    .table-wrapper,
+    .comparison-table-wrapper,
+    .code-block {
+        max-width: 100%;
+    }
+
+    pre,
+    .table-wrapper,
+    .comparison-table-wrapper,
+    .code-block {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 520px;
+    }
+
+    .code-block,
+    pre {
+        font-size: 0.82rem;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                LanaTax
+            </a>
+            <div class="nav-links">
+                <a href="/guides.html">All Guides</a>
+                <a href="/">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="container">
+        <h1>How to Track Solana DeFi Taxes</h1>
+        <p class="subtitle">Solana DeFi is fast and cheap, but every swap, deposit, and withdrawal creates a taxable event. Here's how to stay on top of it.</p>
+
+        <div class="option-card">
+            <h2>Token Swaps <span class="badge">Jupiter, Raydium, Orca</span></h2>
+            <p>Every token swap on Solana is a taxable disposition — even if no fiat (USD) changes hands. When you trade Token A for Token B, the IRS treats it as two separate events: you <em>sold</em> Token A (triggering a capital gain or loss) and <em>bought</em> Token B (establishing a new cost basis).</p>
+            <p>This applies regardless of the DEX you use. Jupiter aggregates routes across Raydium, Orca, and others — but each underlying swap is still a taxable event.</p>
+            <ul>
+                <li><span class="icon-check">&#10003;</span> Swap = selling Token A + buying Token B — two events, one transaction</li>
+                <li><span class="icon-check">&#10003;</span> Capital gain/loss on Token A = proceeds minus your cost basis in Token A</li>
+                <li><span class="icon-check">&#10003;</span> Your new cost basis in Token B = fair market value at time of swap</li>
+                <li><span class="icon-cross">&#10007;</span> "I never converted to USD" is not a valid reason to skip reporting</li>
+                <li><span class="icon-neutral">&#8212;</span> Transaction fees paid in SOL can be added to your cost basis or deducted as an expense</li>
+            </ul>
+            <div class="code-block">
+Example: Swap 10 SOL for 1,000 BONK
+
+  SOL cost basis:    $100 each x 10 = $1,000 total
+  SOL value at swap: $150 each x 10 = $1,500 proceeds
+  Capital gain on SOL:               $500
+
+  BONK cost basis (new):             $1,500
+  (that's what you paid, in USD terms, at the moment of the swap)
+            </div>
+            <p>Even if BONK subsequently crashes to zero, your $500 gain on SOL was realized the moment you swapped. You would claim a separate capital loss on BONK only when you later sell or dispose of it.</p>
+        </div>
+
+        <div class="option-card">
+            <h2>Liquidity Pool Deposits &amp; Withdrawals</h2>
+            <p>Providing liquidity is one of the most tax-ambiguous areas of DeFi. The IRS hasn't issued direct guidance, and many crypto CPAs hold different views. Here's the most widely used interpretation:</p>
+            <ul>
+                <li><span class="icon-check">&#10003;</span> Depositing tokens into an LP likely constitutes disposing of those tokens in exchange for LP tokens — a taxable event</li>
+                <li><span class="icon-check">&#10003;</span> Withdrawing from an LP = disposing of LP tokens for the underlying assets — another taxable event</li>
+                <li><span class="icon-check">&#10003;</span> LP fee income (your share of trading fees) is generally treated as ordinary income when received or when withdrawn</li>
+                <li><span class="icon-cross">&#10007;</span> Impermanent loss is NOT directly tax deductible — it's only realized when you withdraw and the actual loss is crystallized</li>
+                <li><span class="icon-neutral">&#8212;</span> Some tax professionals argue LP deposits are non-taxable token conversions — discuss with your CPA before filing</li>
+            </ul>
+            <p>The practical problem is that LP tokens from Raydium or Orca don't always have a clear market price on the day you deposit. You'll need to reconstruct the USD value of each token deposited at the time of the transaction — which is why having a full transaction history with timestamps matters.</p>
+        </div>
+
+        <div class="option-card">
+            <h2>Yield Farming &amp; Lending</h2>
+            <p>Solana has a rich lending and yield ecosystem — Marginfi, Kamino, Solend, and others. Each creates distinct tax events depending on how you earn.</p>
+            <ul>
+                <li><span class="icon-check">&#10003;</span> Interest and yield earned are ordinary income — taxed at your marginal rate, not capital gains rate</li>
+                <li><span class="icon-check">&#10003;</span> Record the fair market value of each reward or interest payment on the day you receive it — that's your income amount and your new cost basis</li>
+                <li><span class="icon-check">&#10003;</span> Depositing into Marginfi or Kamino creates a lending position — track deposits and withdrawals separately from your spot holdings</li>
+                <li><span class="icon-check">&#10003;</span> Reward tokens from farming (e.g., protocol incentives) = ordinary income at FMV when received, regardless of whether you sell them</li>
+                <li><span class="icon-neutral">&#8212;</span> Borrowing against collateral is generally not taxable — but liquidations are, since they constitute a forced sale of your collateral</li>
+            </ul>
+            <p>The most common mistake: people track the tokens they borrowed and repaid, but forget to record the reward tokens they harvested along the way. Each harvest is a separate income event.</p>
+        </div>
+
+        <div class="option-card winner-card">
+            <h2>How to Track It All</h2>
+            <p>DeFi transaction volumes add up fast. A single week of active trading can produce hundreds of on-chain events. Here's a practical approach to staying organized:</p>
+            <ul>
+                <li><span class="icon-check">&#10003;</span> <strong>Start with your full transaction history</strong> — export everything before categorizing anything. LanaTax pulls this for free using your Solana wallet address.</li>
+                <li><span class="icon-check">&#10003;</span> <strong>Identify each DeFi interaction by type</strong> — sort by transaction type (SWAP, TRANSFER, STAKE, etc.) before trying to calculate anything</li>
+                <li><span class="icon-check">&#10003;</span> <strong>Use Helius transaction type labels</strong> — LanaTax uses Helius enrichment to categorize transactions, which makes identifying swaps, NFT mints, and DeFi events much faster</li>
+                <li><span class="icon-check">&#10003;</span> <strong>Keep a separate record for LP positions</strong> — note the date, tokens deposited, USD value at deposit, and tokens received on withdrawal</li>
+                <li><span class="icon-check">&#10003;</span> <strong>Resolve UNKNOWN transactions before filing</strong> — any transaction your tax software can't categorize needs manual review. Don't leave them blank.</li>
+                <li><span class="icon-check">&#10003;</span> <strong>When in doubt, consult a crypto-savvy CPA</strong> — LP and lending tax treatment is genuinely unsettled. A professional can help you choose a defensible position.</li>
+            </ul>
+            <a href="/" class="cta-btn">Export Your Solana Transactions Free</a>
+        </div>
+
+        <div class="info-box">
+            <strong>LanaTax tip:</strong> LanaTax labels DeFi transactions by type using Helius classifications, so you can identify swaps, transfers, staking events, and other DeFi interactions at a glance in the transaction table — before you export. This makes it much easier to spot which transactions need extra attention before handing your data to a tax tool or CPA.
+        </div>
+
+        <div class="warning-box">
+            <strong>Important disclaimer:</strong> DeFi tax treatment is evolving rapidly. The IRS has not issued specific guidance on liquidity pools, yield farming, or many other DeFi activities. The information on this page reflects widely used interpretations as of early 2026 but should not be treated as legal or tax advice. Consult a qualified tax professional before filing.
+        </div>
+
+        <div class="back-link">
+            <a href="/guides.html">&larr; Back to all guides</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/guides.html">Guides</a>
+                <a href="https://saneapps.com">SaneApps</a>
+                <a href="mailto:hi@saneapps.com">Contact</a>
+            </div>
+            <p class="footer-copy">Made with care by Mr. Sane &middot; &copy; 2026 <a href="https://saneapps.com" style="color: rgba(255,255,255,0.5);">SaneApps</a></p>
+        </div>
+    </footer>
+</body>
+</html>
