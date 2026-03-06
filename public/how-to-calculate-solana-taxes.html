@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Calculate Your Solana Taxes - LanaTax</title>
+    <meta name="description" content="Learn which Solana transactions are taxable, how capital gains and losses work, and the cost basis methods the IRS accepts for crypto.">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon">
+    <meta name="theme-color" content="#08080c">
+    <link rel="canonical" href="https://tax.saneapps.com/how-to-calculate-solana-taxes.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tax.saneapps.com/how-to-calculate-solana-taxes.html">
+    <meta property="og:title" content="How to Calculate Your Solana Taxes">
+    <meta property="og:description" content="Learn which Solana transactions are taxable, how capital gains and losses work, and the cost basis methods the IRS accepts for crypto.">
+    <meta property="og:image" content="https://tax.saneapps.com/opengraph-image">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="LanaTax">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@saneapps">
+    <meta name="twitter:title" content="How to Calculate Your Solana Taxes">
+    <meta name="twitter:description" content="Learn which Solana transactions are taxable, how capital gains and losses work, and the cost basis methods the IRS accepts for crypto.">
+    <meta name="twitter:image" content="https://tax.saneapps.com/opengraph-image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Calculate Your Solana Taxes",
+        "description": "Learn which Solana transactions are taxable, how capital gains and losses work, and the cost basis methods the IRS accepts for crypto.",
+        "author": { "@type": "Organization", "name": "SaneApps" },
+        "publisher": { "@type": "Organization", "name": "LanaTax", "url": "https://tax.saneapps.com" },
+        "datePublished": "2026-02-22",
+        "dateModified": "2026-02-22"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-primary: #08080c; --bg-secondary: #0f0f16; --bg-card: #16161f; --accent: #06B6D4; --accent-soft: #0E7490; --accent-light: #5CE8FF; --accent-glow: rgba(6, 182, 212, 0.25); --success: #34d399; --text-primary: #f5f5f8; --text-secondary: #c0c0d0; --text-muted: #a0a0b0; --border: #252530; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        nav { padding: 24px 0; position: fixed; top: 0; left: 0; right: 0; background: rgba(10, 10, 15, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border); }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; }
+        .logo { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 1.5rem; text-decoration: none; color: var(--text-primary); }
+        .logo-icon { width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-soft), var(--accent-light)); display: flex; align-items: center; justify-content: center; }
+        .logo-icon svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        article.container { padding: 200px 24px 100px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 24px; line-height: 1.2; }
+        .subtitle { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 60px; max-width: 700px; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        h2 .badge { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 4px 12px; border-radius: 100px; background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-muted); font-weight: 500; }
+        .option-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 40px; }
+        .option-card p { color: var(--text-secondary); margin-bottom: 16px; }
+        .winner-card { border-color: var(--accent); background: linear-gradient(145deg, var(--bg-card) 0%, rgba(6, 182, 212, 0.05) 100%); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden; }
+        .winner-card::before { content: "Recommended"; position: absolute; top: 20px; right: -30px; background: var(--accent); color: white; padding: 6px 40px; transform: rotate(45deg); font-size: 0.8rem; font-weight: 700; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .code-block { background: #000; padding: 20px; border-radius: 12px; font-family: monospace; color: #34d399; margin: 20px 0; overflow-x: auto; border: 1px solid var(--border); font-size: 0.95rem; line-height: 1.6; }
+        ul { list-style: none; margin-top: 20px; }
+        li { display: flex; gap: 12px; margin-bottom: 16px; color: var(--text-secondary); }
+        .icon-check { color: var(--success); flex-shrink: 0; font-weight: bold; }
+        .icon-cross { color: #ef4444; flex-shrink: 0; font-weight: bold; }
+        .icon-neutral { color: var(--text-muted); flex-shrink: 0; }
+        .cta-btn { display: inline-block; margin-top: 24px; background: linear-gradient(135deg, var(--accent-soft), var(--accent), var(--accent-light)); color: white; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.2s; box-shadow: 0 4px 24px var(--accent-glow); }
+        .cta-btn:hover { transform: translateY(-2px); }
+        .info-box { background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 20px 24px; margin: 24px 0; color: var(--text-secondary); }
+        .info-box strong { color: var(--accent-light); }
+        .warning-box { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 20px 24px; margin: 24px 0; color: #fca5a5; }
+        .warning-box strong { color: #fca5a5; }
+        .back-link { text-align: center; margin-top: 60px; }
+        .back-link a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .back-link a:hover { color: var(--accent-light); }
+        footer { padding: 40px 0 30px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; margin-top: 60px; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent-light); }
+        .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.85rem; }
+        @media (max-width: 768px) { article.container { padding: 140px 16px 60px; } .option-card { padding: 20px; margin-bottom: 24px; border-radius: 16px; } h1 { font-size: 2rem; } .subtitle { font-size: 1.05rem; margin-bottom: 32px; } .nav-links { gap: 16px; } .code-block { font-size: 0.8rem; padding: 14px; line-height: 1.5; } .cta-btn { display: block; text-align: center; width: 100%; } .info-box, .warning-box { padding: 16px; font-size: 0.9rem; } .winner-card::before { font-size: 0.7rem; padding: 4px 32px; top: 14px; right: -34px; } .logo { font-size: 1.3rem; gap: 10px; } .logo-icon { width: 34px; height: 34px; } .logo-icon svg { width: 18px; height: 18px; } li { gap: 8px; } .footer-links { gap: 16px; } .back-link { margin-top: 40px; } } @media (max-width: 380px) { article.container { padding: 130px 12px 48px; } .option-card { padding: 16px; border-radius: 14px; } h1 { font-size: 1.75rem; } .code-block { font-size: 0.75rem; padding: 10px; } .info-box, .warning-box { padding: 12px; } }
+    
+/* Mobile Guide Guardrails */
+@media (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    nav {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    nav .container,
+    .nav-content,
+    .header-content {
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 12px !important;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-links a {
+        font-size: 0.88rem;
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        padding: 8px 14px;
+    }
+
+    .header,
+    .hero {
+        padding-top: 140px !important;
+    }
+
+    h1 {
+        font-size: clamp(1.9rem, 8.2vw, 2.45rem) !important;
+        line-height: 1.18;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+    }
+
+    h2 {
+        font-size: clamp(1.35rem, 5.9vw, 1.78rem) !important;
+        line-height: 1.24;
+        text-wrap: balance;
+    }
+
+    h3 {
+        font-size: clamp(1.08rem, 4.9vw, 1.34rem) !important;
+        line-height: 1.3;
+        text-wrap: balance;
+    }
+
+    p,
+    li {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+    }
+
+    article,
+    article.container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .subtitle,
+    .tagline,
+    .header p,
+    .guide-card p,
+    .option-card p,
+    .support-text {
+        font-size: 0.98rem !important;
+        line-height: 1.65;
+        max-width: 68ch;
+    }
+
+    .guides-grid,
+    .apps-grid,
+    .faq-grid,
+    .pros-cons,
+    .comparison,
+    .highlight-content,
+    .sustainability-options {
+        grid-template-columns: 1fr !important;
+    }
+
+    .option-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    pre,
+    table,
+    .table-wrapper,
+    .comparison-table-wrapper,
+    .code-block {
+        max-width: 100%;
+    }
+
+    pre,
+    .table-wrapper,
+    .comparison-table-wrapper,
+    .code-block {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 520px;
+    }
+
+    .code-block,
+    pre {
+        font-size: 0.82rem;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                LanaTax
+            </a>
+            <div class="nav-links">
+                <a href="/guides.html">All Guides</a>
+                <a href="/">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="container">
+        <h1>How to Calculate Your Solana Taxes</h1>
+        <p class="subtitle">Solana has dozens of transaction types — swaps, staking, NFTs, DeFi, airdrops. The IRS treats all cryptocurrency as property, which means nearly every interaction has tax consequences. Here's how to work through the math correctly.</p>
+
+        <div class="option-card">
+            <h2>What's Taxable on Solana?</h2>
+            <p>The IRS issued guidance in 2014 classifying cryptocurrency as property, not currency. That one decision determines your entire tax situation. Whenever you dispose of crypto — by selling, swapping, or spending it — you realize a capital gain or loss based on what you paid versus what you received.</p>
+            <p><strong style="color: var(--text-primary);">Taxable events on Solana:</strong></p>
+            <ul>
+                <li><span class="icon-cross">✕</span> <span><strong style="color: var(--text-primary);">Selling SOL for USD</strong> — disposing of property triggers capital gains or losses</span></li>
+                <li><span class="icon-cross">✕</span> <span><strong style="color: var(--text-primary);">Swapping tokens</strong> — trading SOL for USDC, or any token-to-token swap on Jupiter, Raydium, or Orca counts as a disposal at fair market value</span></li>
+                <li><span class="icon-cross">✕</span> <span><strong style="color: var(--text-primary);">NFT sales and purchases</strong> — buying an NFT with SOL disposes of that SOL; selling an NFT realizes a gain or loss on the NFT itself</span></li>
+                <li><span class="icon-cross">✕</span> <span><strong style="color: var(--text-primary);">Staking rewards</strong> — generally treated as ordinary income at fair market value when received (IRS Revenue Ruling 2023-14 confirmed this for proof-of-stake rewards)</span></li>
+                <li><span class="icon-cross">✕</span> <span><strong style="color: var(--text-primary);">Airdrops</strong> — taxed as ordinary income at fair market value on the date you receive them, if you have dominion and control over them</span></li>
+                <li><span class="icon-cross">✕</span> <span><strong style="color: var(--text-primary);">Paying for goods or services with SOL</strong> — treated as a disposal at current market value</span></li>
+            </ul>
+            <p style="margin-top: 24px;"><strong style="color: var(--text-primary);">Not taxable:</strong></p>
+            <ul>
+                <li><span class="icon-check">✓</span> <span>Transferring SOL or tokens between wallets you own — no disposal occurs</span></li>
+                <li><span class="icon-check">✓</span> <span>Buying SOL with USD — you're acquiring property, not disposing of it</span></li>
+                <li><span class="icon-check">✓</span> <span>Failed transactions — if the transaction didn't execute, nothing was disposed of</span></li>
+                <li><span class="icon-check">✓</span> <span>Wrapping SOL into wSOL — generally treated as the same asset</span></li>
+                <li><span class="icon-check">✓</span> <span>Moving funds to a hardware wallet — still your property, same cost basis</span></li>
+            </ul>
+        </div>
+
+        <div class="option-card">
+            <h2>How Capital Gains Work</h2>
+            <p>Every time you sell or swap Solana assets, you calculate a gain or loss using this formula:</p>
+            <div class="code-block">Gain (or Loss) = Proceeds − Cost Basis
+
+Proceeds   = the USD value you received (or the FMV of what you received)
+Cost Basis = what you originally paid for the asset, including fees</div>
+            <p>The tax rate you pay depends on how long you held the asset before disposing of it. This is the holding period, and it's the single biggest lever you have to reduce your tax bill legally.</p>
+            <p><strong style="color: var(--text-primary);">Short-term gains (held 1 year or less)</strong> are taxed at your ordinary income tax rate — the same bracket as your wages. In 2025, that ranges from 10% to 37% depending on your total income.</p>
+            <p><strong style="color: var(--text-primary);">Long-term gains (held more than 1 year)</strong> qualify for preferential rates: 0%, 15%, or 20% depending on your income. Most people pay 15%.</p>
+            <p><strong style="color: var(--text-primary);">A real example:</strong></p>
+            <div class="code-block">You buy 10 SOL at $20 each on March 1, 2024.
+Cost basis = $200 (plus any exchange fees)
+
+Scenario A — Short-term (sold before March 1, 2025):
+  You sell 10 SOL at $150 on December 15, 2024.
+  Proceeds = $1,500
+  Cost basis = $200
+  Short-term gain = $1,300 → taxed at your income rate (e.g., 22% = $286 tax)
+
+Scenario B — Long-term (sold after March 1, 2025):
+  You sell 10 SOL at $150 on June 1, 2025.
+  Proceeds = $1,500
+  Cost basis = $200
+  Long-term gain = $1,300 → taxed at 15% = $195 tax
+
+Holding 3 more months saved $91 in this example.</div>
+            <p>Losses work the same way in reverse — they reduce your taxable gains. If you have more losses than gains in a year, you can deduct up to $3,000 of net losses against ordinary income, and carry forward any remainder to future years.</p>
+        </div>
+
+        <div class="option-card">
+            <h2>Cost Basis Methods <span class="badge">IRS Rules Apply</span></h2>
+            <p>If you've bought SOL at different prices over time, you need a method to determine which coins you're selling when you dispose of some of them. The IRS allows several methods, but you must pick one and apply it consistently.</p>
+            <p><strong style="color: var(--text-primary);">FIFO — First In, First Out</strong> (IRS default if you don't specify): The oldest coins you bought are treated as the first ones sold. In a rising market, this often results in the lowest cost basis and the highest taxable gains.</p>
+            <p><strong style="color: var(--text-primary);">LIFO — Last In, First Out</strong>: The most recently purchased coins are treated as sold first. In a rising market, your recent purchases have a higher cost basis, which reduces your gains. Less common for crypto; some tax software doesn't support it.</p>
+            <p><strong style="color: var(--text-primary);">HIFO — Highest In, First Out</strong>: You sell the highest-cost-basis coins first, minimizing your taxable gains in any market condition. Generally the most tax-efficient method. The IRS allows this as a form of Specific Identification.</p>
+            <p><strong style="color: var(--text-primary);">Specific ID</strong>: You identify exactly which lots you're selling. Requires good recordkeeping but gives maximum control. HIFO is a systematic application of Specific ID.</p>
+
+            <div class="code-block">Example — You own 30 SOL bought in three lots:
+  Lot 1: 10 SOL @ $50 each  (bought Jan 2024)
+  Lot 2: 10 SOL @ $120 each (bought Jun 2024)
+  Lot 3: 10 SOL @ $80 each  (bought Nov 2024)
+
+You sell 10 SOL at $150 each → Proceeds = $1,500
+
+  FIFO  → sell Lot 1 → Cost basis $500 → Gain = $1,000 (long-term)
+  LIFO  → sell Lot 3 → Cost basis $800 → Gain = $700   (short-term)
+  HIFO  → sell Lot 2 → Cost basis $1,200 → Gain = $300 (short-term)
+
+HIFO produces the smallest gain — but check whether long-term
+rates make FIFO better for your specific situation.</div>
+
+            <p>There is no universally "best" method — it depends on your income, the size of your gains, and your holding periods. Run the numbers for your situation, or ask your CPA.</p>
+        </div>
+
+        <div class="info-box">
+            <strong>We built a free tool for this.</strong> LanaTax automatically pulls your complete Solana transaction history, categorizes each transaction by type (swap, stake, NFT, transfer, airdrop), and exports everything in a tax-ready CSV that your CPA or tax software can read directly — completely free, no account required.
+        </div>
+
+        <div class="warning-box">
+            <strong>This is educational information, not tax advice.</strong> Crypto tax law is complex and evolving. Your specific situation — income level, state taxes, wash sale rules for securities, and the nature of your transactions — all affect what you owe. Consult a qualified CPA or tax professional before filing.
+        </div>
+
+        <a href="/" class="cta-btn">Try LanaTax — It's Free</a>
+
+        <div class="back-link">
+            <a href="/guides.html">← Back to All Guides</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/guides.html">Guides</a>
+                <a href="https://saneapps.com">SaneApps</a>
+                <a href="mailto:hi@saneapps.com">Contact</a>
+            </div>
+            <p class="footer-copy">Made with care by Mr. Sane &middot; &copy; 2026 <a href="https://saneapps.com" style="color: rgba(255,255,255,0.5);">SaneApps</a></p>
+        </div>
+    </footer>
+</body>
+</html>

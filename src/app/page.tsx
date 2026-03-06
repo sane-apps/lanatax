@@ -1,65 +1,238 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect, useCallback, useMemo } from "react";
+import { toast } from "sonner";
+import { AnimatedBackground } from "@/components/animated-background";
+import { Header } from "@/components/header";
+import { WalletProvider } from "@/components/wallet-provider";
+import { HeroInput } from "@/components/hero-input";
+import { FetchProgress } from "@/components/fetch-progress";
+import { StatsCards } from "@/components/stats-cards";
+import { TxTabs } from "@/components/tx-tabs";
+import { Disclaimer } from "@/components/disclaimer";
+import { Footer } from "@/components/footer";
+import { EmptyState } from "@/components/empty-state";
+import { HowItWorks } from "@/components/how-it-works";
+import { SaneAppsShowcase } from "@/components/saneapps-showcase";
+import { Testimonials } from "@/components/testimonials";
+import { FAQSection } from "@/components/faq-section";
+import { SupportSection } from "@/components/support-section";
+import { StructuredData } from "@/components/structured-data";
+import { useTransactions } from "@/hooks/use-transactions";
+import { useLocalStorageString } from "@/hooks/use-local-storage";
+import { loadTokenList } from "@/lib/tokens";
+import { fetchSOLPriceHistory, type PriceMap, type PriceResult } from "@/lib/prices";
+import { STORAGE_KEYS } from "@/lib/constants";
+import type { TokenInfo, HeliusTransaction } from "@/lib/types";
+
+const DEFAULT_TAX_YEAR = new Date().getFullYear() - 1;
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <WalletProvider>
+      <HomeContent />
+    </WalletProvider>
+  );
+}
+
+function HomeContent() {
+  const [wallet, setWallet] = useLocalStorageString(STORAGE_KEYS.WALLET);
+  const [apiKey, setApiKey] = useLocalStorageString(STORAGE_KEYS.API_KEY);
+  const [taxYear, setTaxYear] = useState(() => {
+    if (typeof window === "undefined") return DEFAULT_TAX_YEAR;
+    try {
+      const stored = localStorage.getItem(STORAGE_KEYS.TAX_YEAR);
+      if (stored) {
+        const parsed = parseInt(stored, 10);
+        if (!isNaN(parsed) && parsed >= 2020 && parsed <= new Date().getFullYear()) {
+          return parsed;
+        }
+      }
+    } catch { /* ignore */ }
+    return DEFAULT_TAX_YEAR;
+  });
+
+  // Persist tax year selection
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEYS.TAX_YEAR, String(taxYear));
+    } catch { /* ignore */ }
+  }, [taxYear]);
+  const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
+  const [solPrices, setSolPrices] = useState<PriceMap>(new Map());
+
+  const {
+    status,
+    transactions,
+    error,
+    progress,
+    fetchTransactions,
+    cancel,
+    setTransactions,
+  } = useTransactions();
+
+  // Filter transactions to the selected tax year
+  const filteredTransactions = useMemo(() => {
+    const yearStart = Date.UTC(taxYear, 0, 1) / 1000;
+    const yearEnd = Date.UTC(taxYear + 1, 0, 1) / 1000;
+    return transactions.filter(
+      (tx) => tx.timestamp >= yearStart && tx.timestamp < yearEnd
+    );
+  }, [transactions, taxYear]);
+
+  // Load token list on mount
+  useEffect(() => {
+    loadTokenList().then(setTokenMap);
+  }, []);
+
+  // Fetch SOL price history for the selected tax year
+  useEffect(() => {
+    if (filteredTransactions.length === 0) {
+      setSolPrices(new Map());
+      return;
+    }
+
+    const yearStart = Date.UTC(taxYear, 0, 1) / 1000;
+    const yearEnd = Date.UTC(taxYear + 1, 0, 1) / 1000;
+    const from = yearStart - 86400;
+    const to = yearEnd + 86400;
+
+    fetchSOLPriceHistory(from, to).then((result: PriceResult) => {
+      if (result.prices.size > 0) {
+        setSolPrices(result.prices);
+        toast.success(`Loaded SOL prices for ${taxYear} (${result.prices.size} days)`);
+      }
+      if (result.clamped) {
+        toast.warning(
+          "Some transactions are older than 365 days — USD values may be missing for those dates.",
+          { duration: 8000 }
+        );
+      }
+    });
+  }, [filteredTransactions.length, taxYear]);
+
+  // Restore cached transactions on mount
+  useEffect(() => {
+    try {
+      const cached = localStorage.getItem(STORAGE_KEYS.TRANSACTIONS);
+      if (cached) {
+        const parsed: HeliusTransaction[] = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setTransactions(parsed);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, [setTransactions]);
+
+  const handleFetch = useCallback(async () => {
+    const result = await fetchTransactions(wallet, apiKey);
+    if (result && result.length > 0) {
+      try {
+        localStorage.setItem(
+          STORAGE_KEYS.TRANSACTIONS,
+          JSON.stringify(result)
+        );
+      } catch {
+        toast.warning("Could not cache transactions — localStorage may be full");
+      }
+      toast.success(`Loaded ${result.length.toLocaleString()} transactions`);
+    } else if (result && result.length === 0) {
+      toast.info("No transactions found for this wallet");
+    }
+  }, [wallet, apiKey, fetchTransactions]);
+
+  return (
+    <>
+      <AnimatedBackground />
+      <Header />
+
+      <main className="mx-auto min-h-screen max-w-6xl overflow-x-hidden px-[21px] sm:px-[34px]">
+        <HeroInput
+          wallet={wallet}
+          apiKey={apiKey}
+          taxYear={taxYear}
+          onWalletChange={setWallet}
+          onApiKeyChange={setApiKey}
+          onTaxYearChange={setTaxYear}
+          onFetch={handleFetch}
+          onCancel={cancel}
+          status={status}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        {/* Error banner */}
+        {status === "error" && error && (
+          <div className="mx-auto mb-[34px] max-w-2xl animate-fade-in rounded-xl border border-red-500/10 bg-red-500/5 px-[21px] py-[13px]">
+            <p className="text-sm text-red-300">{error}</p>
+          </div>
+        )}
+
+        {/* Loading progress */}
+        {status === "loading" && (
+          <div className="mb-[34px]">
+            <FetchProgress
+              loaded={progress.loaded}
+              currentPage={progress.currentPage}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+        )}
+
+        {/* Results */}
+        {status === "success" && transactions.length > 0 && (
+          <div className="space-y-[34px] pb-[34px] animate-fade-in">
+            {/* Year filter info */}
+            {filteredTransactions.length !== transactions.length && (
+              <div className="mx-auto max-w-2xl rounded-xl border border-[#06B6D4]/10 bg-[#06B6D4]/5 px-[21px] py-[13px] text-center">
+                <p className="text-sm text-white">
+                  Showing <span className="font-semibold">{filteredTransactions.length.toLocaleString()}</span> transactions
+                  for tax year <span className="font-semibold">{taxYear}</span>
+                  {" "}(out of {transactions.length.toLocaleString()} total)
+                </p>
+              </div>
+            )}
+
+            {filteredTransactions.length > 0 ? (
+              <>
+                <StatsCards transactions={filteredTransactions} />
+                <TxTabs
+                  transactions={filteredTransactions}
+                  wallet={wallet}
+                  tokenMap={tokenMap}
+                  solPrices={solPrices}
+                />
+                <Disclaimer />
+              </>
+            ) : (
+              <div className="flex flex-col items-center gap-[13px] py-[55px] text-center">
+                <p className="text-lg font-medium text-white">
+                  No transactions in {taxYear}
+                </p>
+                <p className="max-w-sm text-sm text-white/90">
+                  This wallet has no transactions between Jan 1 and Dec 31, {taxYear}.
+                  Try selecting a different tax year.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Empty state */}
+        {status === "success" && transactions.length === 0 && <EmptyState />}
+
+        {/* Info sections — always visible */}
+        <div className="space-y-[89px] pt-[89px]">
+          <HowItWorks />
+          <SaneAppsShowcase />
+          <Testimonials />
+          <FAQSection />
+          <SupportSection />
         </div>
+
+        <Footer />
       </main>
-    </div>
+
+      <StructuredData />
+    </>
   );
 }
