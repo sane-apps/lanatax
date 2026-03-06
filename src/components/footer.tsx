@@ -6,7 +6,7 @@ const LINKS = [
   { label: "Sponsor", href: "https://github.com/sponsors/MrSaneApps" },
   { label: "Privacy", href: "https://saneapps.com/privacy" },
   { label: "Contact", href: "mailto:hi@saneapps.com" },
-  { label: "SaneApps", href: "https://saneapps.com" },
+  { label: "SaneApps", href: "https://saneapps.com/?ref=lanatax" },
 ];
 
 export function Footer() {
@@ -15,7 +15,7 @@ export function Footer() {
       <Separator className="mb-[34px] bg-white/5" />
       <div className="flex flex-col items-center gap-[13px] text-center">
         <p className="text-sm font-semibold text-white">
-          No tracking. No cloud. 100% on your device.
+          No cloud processing. Wallet data stays on your device.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-[21px]">
           {LINKS.map((link) => (
@@ -31,6 +31,9 @@ export function Footer() {
         </div>
         <p className="text-sm text-white">
           Made with care by Mr. Sane &middot; &copy; {new Date().getFullYear()} LanaTax
+        </p>
+        <p className="text-sm text-white">
+          Built by SaneApps. The site uses privacy-respecting Cloudflare Web Analytics.
         </p>
         <p className="text-sm text-white">
           Not tax advice. Always consult a qualified tax professional.
