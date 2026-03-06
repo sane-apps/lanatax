@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import { withReferralSource } from "@/lib/referral";
 
 const PRODUCTS = [
   {
@@ -46,7 +47,7 @@ export function SaneAppsShowcase() {
         {PRODUCTS.map((product) => (
           <a
             key={product.name}
-            href={product.url}
+            href={withReferralSource(product.url)}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-[20px] p-[34px] max-sm:p-[20px] max-sm:rounded-[14px] transition-all duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
@@ -97,7 +98,7 @@ export function SaneAppsShowcase() {
 
       <div className="mt-[21px] text-center">
         <a
-          href="https://saneapps.com/?ref=lanatax"
+          href={withReferralSource("https://saneapps.com/?ref=lanatax")}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-[8px] rounded-xl bg-white/5 px-[21px] py-[13px] text-sm font-medium text-white transition-all hover:bg-white/10"
