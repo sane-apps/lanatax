@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Copy, ExternalLink } from "lucide-react";
-import { formatAddress, formatDate, formatSol, copyToClipboard } from "@/lib/utils";
+import { formatDate, formatSol, copyToClipboard } from "@/lib/utils";
 import { TX_TYPE_COLORS, SOLSCAN_BASE } from "@/lib/constants";
 import type { HeliusTransaction, TokenInfo } from "@/lib/types";
 import { lookupToken } from "@/lib/tokens";
