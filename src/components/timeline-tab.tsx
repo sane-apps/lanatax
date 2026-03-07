@@ -51,6 +51,8 @@ export function TimelineTab({ transactions, wallet, tokenMap }: TimelineTabProps
   }, [transactions]);
 
   const parentRef = useRef<HTMLDivElement>(null);
+  // TanStack Virtual returns function-heavy objects that React Compiler intentionally skips.
+  // eslint-disable-next-line react-hooks/incompatible-library
   const virtualizer = useVirtualizer({
     count: filtered.length,
     getScrollElement: () => parentRef.current,

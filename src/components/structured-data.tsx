@@ -70,8 +70,6 @@ const FAQ_SCHEMA = JSON.stringify({
   ],
 });
 
-// Safe: all schemas are compile-time constants from hardcoded strings above
-/* eslint-disable react/no-danger */
 export function StructuredData() {
   return (
     <>
