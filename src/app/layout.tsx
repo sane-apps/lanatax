@@ -18,9 +18,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "LanaTax — Solana Tax Calculator | Free Transaction History & CSV Export",
+  title: "LanaTax — Solana Tax Calculator | Free History & CSV Export",
   description:
-    "Free Solana tax calculator. Paste your wallet address, see full transaction history with charts, and export tax-ready CSV for Koinly and CoinLedger. 100% on-device, no sign-up required.",
+    "Free Solana tax calculator. Paste a wallet address, see transaction history with charts, export tax-ready CSV for Koinly and CoinLedger. 100% on-device.",
   keywords: [
     "Solana tax calculator",
     "Solana transactions",

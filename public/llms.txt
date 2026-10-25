@@ -1,0 +1,17 @@
+# LanaTax
+
+> Free Solana tax calculator. Paste your wallet address, see full transaction history with charts, and export tax-ready CSV for Koinly and CoinLedger. 100% on-device, no sign-up required.
+
+## Key pages
+- https://tax.saneapps.com
+- https://tax.saneapps.com/guides.html
+- https://tax.saneapps.com/how-to-calculate-solana-taxes.html
+- https://tax.saneapps.com/solana-tax-guide-2025.html
+- https://tax.saneapps.com/how-to-export-solana-transactions-csv.html
+- https://tax.saneapps.com/how-to-report-crypto-irs-form-8949.html
+- https://tax.saneapps.com/how-to-get-free-helius-api-key.html
+- https://tax.saneapps.com/how-to-report-solana-staking-taxes.html
+- https://tax.saneapps.com/how-to-handle-solana-airdrops-taxes.html
+- https://tax.saneapps.com/how-to-track-solana-defi-taxes.html
+- https://tax.saneapps.com/how-to-report-solana-nft-taxes.html
+- https://tax.saneapps.com/how-to-import-solana-transactions-koinly.html
