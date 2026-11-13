@@ -1,17 +1,19 @@
 # LanaTax
 
-> Free Solana tax calculator. Paste your wallet address, see full transaction history with charts, and export tax-ready CSV for Koinly and CoinLedger. 100% on-device, no sign-up required.
+> Free Solana tax calculator. Paste your wallet address, see your transaction history with charts, and export a tax-ready CSV for Koinly and CoinLedger. Runs in your browser with your own free Helius API key. No sign-up.
 
 ## Key pages
-- https://tax.saneapps.com
-- https://tax.saneapps.com/guides.html
-- https://tax.saneapps.com/how-to-calculate-solana-taxes.html
-- https://tax.saneapps.com/solana-tax-guide-2025.html
-- https://tax.saneapps.com/how-to-export-solana-transactions-csv.html
-- https://tax.saneapps.com/how-to-report-crypto-irs-form-8949.html
-- https://tax.saneapps.com/how-to-get-free-helius-api-key.html
-- https://tax.saneapps.com/how-to-report-solana-staking-taxes.html
-- https://tax.saneapps.com/how-to-handle-solana-airdrops-taxes.html
-- https://tax.saneapps.com/how-to-track-solana-defi-taxes.html
-- https://tax.saneapps.com/how-to-report-solana-nft-taxes.html
-- https://tax.saneapps.com/how-to-import-solana-transactions-koinly.html
+- [LanaTax](https://tax.saneapps.com): the calculator
+- [Guides](https://tax.saneapps.com/guides): all guides
+
+## Guides
+- [How to Calculate Your Solana Taxes](https://tax.saneapps.com/how-to-calculate-solana-taxes)
+- [Solana Tax Guide for 2025](https://tax.saneapps.com/solana-tax-guide-2025)
+- [How to Export Solana Transactions to CSV](https://tax.saneapps.com/how-to-export-solana-transactions-csv)
+- [How to Report Crypto on IRS Form 8949](https://tax.saneapps.com/how-to-report-crypto-irs-form-8949)
+- [How to Get a Free Helius API Key](https://tax.saneapps.com/how-to-get-free-helius-api-key)
+- [How to Report Solana Staking Rewards on Your Taxes](https://tax.saneapps.com/how-to-report-solana-staking-taxes)
+- [How to Handle Solana Airdrops on Your Taxes](https://tax.saneapps.com/how-to-handle-solana-airdrops-taxes)
+- [How to Track Solana DeFi Taxes](https://tax.saneapps.com/how-to-track-solana-defi-taxes)
+- [How to Report Solana NFT Taxes](https://tax.saneapps.com/how-to-report-solana-nft-taxes)
+- [How to Import Solana Transactions into Koinly](https://tax.saneapps.com/how-to-import-solana-transactions-koinly)

@@ -8,10 +8,10 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon">
     <meta name="theme-color" content="#08080c">
-    <link rel="canonical" href="https://tax.saneapps.com/how-to-track-solana-defi-taxes.html">
+    <link rel="canonical" href="https://tax.saneapps.com/how-to-track-solana-defi-taxes">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://tax.saneapps.com/how-to-track-solana-defi-taxes.html">
-    <meta property="og:title" content="How to Track Solana DeFi Taxes">
+    <meta property="og:url" content="https://tax.saneapps.com/how-to-track-solana-defi-taxes">
+    <meta property="og:title" content="How to Track Solana DeFi Taxes - LanaTax">
     <meta property="og:description" content="Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.">
     <meta property="og:image" content="https://tax.saneapps.com/opengraph-image">
     <meta property="og:image:width" content="1200">
@@ -19,20 +19,54 @@
     <meta property="og:site_name" content="LanaTax">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@saneapps">
-    <meta name="twitter:title" content="How to Track Solana DeFi Taxes">
+    <meta name="twitter:title" content="How to Track Solana DeFi Taxes - LanaTax">
     <meta name="twitter:description" content="Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.">
     <meta name="twitter:image" content="https://tax.saneapps.com/opengraph-image">
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Track Solana DeFi Taxes - LanaTax",
+  "description": "Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.",
+  "author": {
+    "@type": "Organization",
+    "name": "SaneApps"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LanaTax",
+    "url": "https://tax.saneapps.com"
+  },
+  "datePublished": "2026-02-22",
+  "dateModified": "2026-11-12",
+  "mainEntityOfPage": "https://tax.saneapps.com/how-to-track-solana-defi-taxes"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "How to Track Solana DeFi Taxes",
-        "description": "Token swaps, liquidity pools, yield farming — DeFi on Solana creates complex tax events. Learn how to track and report them correctly.",
-        "author": { "@type": "Organization", "name": "SaneApps" },
-        "publisher": { "@type": "Organization", "name": "LanaTax", "url": "https://tax.saneapps.com" },
-        "datePublished": "2026-02-22",
-        "dateModified": "2026-02-22"
+      "@type": "ListItem",
+      "position": 1,
+      "name": "LanaTax",
+      "item": "https://tax.saneapps.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://tax.saneapps.com/guides"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Track Solana DeFi Taxes",
+      "item": "https://tax.saneapps.com/how-to-track-solana-defi-taxes"
     }
+  ]
+}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,6 +250,11 @@
 }
 
 
+        .faq h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--text-primary); margin: 24px 0 8px; }
+        .related { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .option-card.faq, .option-card.related-card { margin-top: 40px; }
+        .code-block { white-space: pre-wrap; }
+        .related a { color: var(--accent-light); text-decoration: none; padding: 10px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -226,7 +265,7 @@
                 LanaTax
             </a>
             <div class="nav-links">
-                <a href="/guides.html">All Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="/">Home</a>
             </div>
         </div>
@@ -247,16 +286,14 @@
                 <li><span class="icon-cross">&#10007;</span> "I never converted to USD" is not a valid reason to skip reporting</li>
                 <li><span class="icon-neutral">&#8212;</span> Transaction fees paid in SOL can be added to your cost basis or deducted as an expense</li>
             </ul>
-            <div class="code-block">
-Example: Swap 10 SOL for 1,000 BONK
+            <div class="code-block">Example: Swap 10 SOL for 1,000 BONK
 
   SOL cost basis:    $100 each x 10 = $1,000 total
   SOL value at swap: $150 each x 10 = $1,500 proceeds
   Capital gain on SOL:               $500
 
   BONK cost basis (new):             $1,500
-  (that's what you paid, in USD terms, at the moment of the swap)
-            </div>
+  (that's what you paid, in USD terms, at the moment of the swap)</div>
             <p>Even if BONK subsequently crashes to zero, your $500 gain on SOL was realized the moment you swapped. You would claim a separate capital loss on BONK only when you later sell or dispose of it.</p>
         </div>
 
@@ -308,8 +345,17 @@ Example: Swap 10 SOL for 1,000 BONK
             <strong>Important disclaimer:</strong> DeFi tax treatment is evolving rapidly. The IRS has not issued specific guidance on liquidity pools, yield farming, or many other DeFi activities. The information on this page reflects widely used interpretations as of early 2026 but should not be treated as legal or tax advice. Consult a qualified tax professional before filing.
         </div>
 
+        <div class="option-card related-card">
+            <h2>Related guides</h2>
+            <div class="related">
+                <a href="/how-to-calculate-solana-taxes">Calculate Solana taxes</a>
+                <a href="/how-to-report-solana-staking-taxes">Report staking rewards</a>
+                <a href="/how-to-export-solana-transactions-csv">Export transactions to CSV</a>
+            </div>
+        </div>
+
         <div class="back-link">
-            <a href="/guides.html">&larr; Back to all guides</a>
+            <a href="/guides">&larr; Back to all guides</a>
         </div>
     </article>
 
@@ -317,7 +363,7 @@ Example: Swap 10 SOL for 1,000 BONK
         <div class="container">
             <div class="footer-links">
                 <a href="/">Home</a>
-                <a href="/guides.html">Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="https://saneapps.com">SaneApps</a>
                 <a href="mailto:hi@saneapps.com">Contact</a>
             </div>

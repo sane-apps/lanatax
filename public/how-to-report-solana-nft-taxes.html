@@ -8,10 +8,10 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon">
     <meta name="theme-color" content="#08080c">
-    <link rel="canonical" href="https://tax.saneapps.com/how-to-report-solana-nft-taxes.html">
+    <link rel="canonical" href="https://tax.saneapps.com/how-to-report-solana-nft-taxes">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://tax.saneapps.com/how-to-report-solana-nft-taxes.html">
-    <meta property="og:title" content="How to Report Solana NFT Taxes">
+    <meta property="og:url" content="https://tax.saneapps.com/how-to-report-solana-nft-taxes">
+    <meta property="og:title" content="How to Report Solana NFT Taxes - LanaTax">
     <meta property="og:description" content="Minting, buying, selling, and receiving royalties from NFTs — every action has tax implications. Learn how Solana NFTs are taxed.">
     <meta property="og:image" content="https://tax.saneapps.com/opengraph-image">
     <meta property="og:image:width" content="1200">
@@ -19,20 +19,54 @@
     <meta property="og:site_name" content="LanaTax">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@saneapps">
-    <meta name="twitter:title" content="How to Report Solana NFT Taxes">
+    <meta name="twitter:title" content="How to Report Solana NFT Taxes - LanaTax">
     <meta name="twitter:description" content="Minting, buying, selling, and receiving royalties from NFTs — every action has tax implications. Learn how Solana NFTs are taxed.">
     <meta name="twitter:image" content="https://tax.saneapps.com/opengraph-image">
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Report Solana NFT Taxes - LanaTax",
+  "description": "Minting, buying, selling, and receiving royalties from NFTs — every action has tax implications. Learn how Solana NFTs are taxed.",
+  "author": {
+    "@type": "Organization",
+    "name": "SaneApps"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LanaTax",
+    "url": "https://tax.saneapps.com"
+  },
+  "datePublished": "2026-02-22",
+  "dateModified": "2026-11-12",
+  "mainEntityOfPage": "https://tax.saneapps.com/how-to-report-solana-nft-taxes"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "How to Report Solana NFT Taxes",
-        "description": "Minting, buying, selling, and receiving royalties from NFTs — every action has tax implications. Learn how Solana NFTs are taxed.",
-        "author": { "@type": "Organization", "name": "SaneApps" },
-        "publisher": { "@type": "Organization", "name": "LanaTax", "url": "https://tax.saneapps.com" },
-        "datePublished": "2026-02-22",
-        "dateModified": "2026-02-22"
+      "@type": "ListItem",
+      "position": 1,
+      "name": "LanaTax",
+      "item": "https://tax.saneapps.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://tax.saneapps.com/guides"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Report Solana NFT Taxes",
+      "item": "https://tax.saneapps.com/how-to-report-solana-nft-taxes"
     }
+  ]
+}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,6 +249,11 @@
 }
 
 
+        .faq h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--text-primary); margin: 24px 0 8px; }
+        .related { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .option-card.faq, .option-card.related-card { margin-top: 40px; }
+        .code-block { white-space: pre-wrap; }
+        .related a { color: var(--accent-light); text-decoration: none; padding: 10px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -225,7 +264,7 @@
                 LanaTax
             </a>
             <div class="nav-links">
-                <a href="/guides.html">All Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="/">Home</a>
             </div>
         </div>
@@ -244,15 +283,13 @@
                 <li><span class="icon-check">&#10003;</span> Free mints: your cost basis is $0 plus any gas fees paid. If you later sell, the full sale price is your gain.</li>
                 <li><span class="icon-neutral">&#8212;</span> The date of minting starts your holding period — relevant for short-term vs long-term capital gains treatment when you sell</li>
             </ul>
-            <div class="code-block">
-Example: Mint an NFT for 2 SOL when SOL = $150
+            <div class="code-block">Example: Mint an NFT for 2 SOL when SOL = $150
 
   Amount paid:  2 SOL x $150 = $300
   Gas fees:     0.001 SOL x $150 = $0.15
 
   Your NFT cost basis: ~$300.15
-  Holding period starts: date of mint transaction
-            </div>
+  Holding period starts: date of mint transaction</div>
         </div>
 
         <div class="option-card">
@@ -264,16 +301,14 @@ Example: Mint an NFT for 2 SOL when SOL = $150
                 <li><span class="icon-check">&#10003;</span> Marketplace fees paid (e.g., 2% platform fee) can be included in your cost basis</li>
                 <li><span class="icon-neutral">&#8212;</span> You need to know your cost basis in the SOL you spent — this requires tracking when and at what price you originally acquired that SOL</li>
             </ul>
-            <div class="code-block">
-Example: Buy an NFT for 5 SOL when SOL = $150
+            <div class="code-block">Example: Buy an NFT for 5 SOL when SOL = $150
 
   Original SOL cost basis: $100 each x 5 SOL = $500
   Sale proceeds on SOL:    $150 each x 5 SOL = $750
   Capital gain on SOL:     $750 - $500 = $250  (report this)
 
   NFT cost basis:          $750  (your new acquisition cost)
-  NFT holding period starts: date of purchase transaction
-            </div>
+  NFT holding period starts: date of purchase transaction</div>
             <p>This is why you need to track your SOL holdings carefully — every time you spend SOL (including on NFTs), it's a taxable event for that SOL.</p>
         </div>
 
@@ -288,8 +323,7 @@ Example: Buy an NFT for 5 SOL when SOL = $150
                 <li><span class="icon-check">&#10003;</span> <strong>Long-term</strong> if you held it more than 1 year — taxed at preferential capital gains rates (0%, 15%, or 20%)</li>
                 <li><span class="icon-neutral">&#8212;</span> Royalties you paid to the creator on the sale can reduce your net proceeds, lowering your taxable gain</li>
             </ul>
-            <div class="code-block">
-Example: Sell an NFT for 8 SOL when SOL = $200
+            <div class="code-block">Example: Sell an NFT for 8 SOL when SOL = $200
 
   Proceeds:              8 SOL x $200 = $1,600
   Minus creator royalty: $1,600 x 5% = -$80
@@ -298,8 +332,7 @@ Example: Sell an NFT for 8 SOL when SOL = $200
   Cost basis:            $750 (what you paid at purchase)
   Capital gain:          $1,520 - $750 = $770
 
-  Held 14 months → Long-term capital gain
-            </div>
+  Held 14 months → Long-term capital gain</div>
         </div>
 
         <div class="option-card">
@@ -340,8 +373,17 @@ Example: Sell an NFT for 8 SOL when SOL = $200
             <a href="/" class="cta-btn">Look Up Your NFT Transaction History Free</a>
         </div>
 
+        <div class="option-card related-card">
+            <h2>Related guides</h2>
+            <div class="related">
+                <a href="/how-to-calculate-solana-taxes">Calculate Solana taxes</a>
+                <a href="/how-to-handle-solana-airdrops-taxes">Handle airdrops</a>
+                <a href="/how-to-report-crypto-irs-form-8949">Report crypto on Form 8949</a>
+            </div>
+        </div>
+
         <div class="back-link">
-            <a href="/guides.html">&larr; Back to all guides</a>
+            <a href="/guides">&larr; Back to all guides</a>
         </div>
     </article>
 
@@ -349,7 +391,7 @@ Example: Sell an NFT for 8 SOL when SOL = $200
         <div class="container">
             <div class="footer-links">
                 <a href="/">Home</a>
-                <a href="/guides.html">Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="https://saneapps.com">SaneApps</a>
                 <a href="mailto:hi@saneapps.com">Contact</a>
             </div>

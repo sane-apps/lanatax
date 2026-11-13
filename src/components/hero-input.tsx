@@ -179,7 +179,7 @@ export function HeroInput({
                   <li>Copy the key and paste it above</li>
                 </ol>
                 <p className="text-white">
-                  Helius provides 100,000 free API calls/month — more than enough for tax exports.
+                  The Helius free plan includes 1M credits a month, far more than a tax export needs.
                 </p>
                 <a
                   href="https://dev.helius.xyz"

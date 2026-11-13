@@ -7,7 +7,7 @@ const STEPS = [
     icon: Key,
     title: "Get a Free API Key",
     description:
-      "Create a free account at dev.helius.xyz and generate an API key. It takes 30 seconds and gives you 100,000 API calls per month.",
+      "Create a free account at dev.helius.xyz and generate an API key. It takes 30 seconds, and the free plan includes 1M credits a month.",
   },
   {
     icon: Search,

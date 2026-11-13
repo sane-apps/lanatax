@@ -26,7 +26,7 @@ export function Header() {
 
         <div className="flex items-center gap-[13px]">
           <a
-            href="/guides.html"
+            href="/guides"
             className="text-sm text-white/80 transition-colors hover:text-[#5CE8FF]"
           >
             Guides

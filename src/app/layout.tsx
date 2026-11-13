@@ -5,6 +5,10 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
+const SITE_TITLE = "LanaTax — Solana Tax Calculator | Free History & CSV Export";
+const SITE_DESCRIPTION =
+  "Free Solana tax calculator. Paste a wallet address, see transaction history with charts, export tax-ready CSV for Koinly and CoinLedger. Runs in your browser.";
+
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -18,9 +22,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "LanaTax — Solana Tax Calculator | Free History & CSV Export",
-  description:
-    "Free Solana tax calculator. Paste a wallet address, see transaction history with charts, export tax-ready CSV for Koinly and CoinLedger. 100% on-device.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   keywords: [
     "Solana tax calculator",
     "Solana transactions",
@@ -33,9 +36,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mr. Sane", url: "https://saneapps.com" }],
   openGraph: {
-    title: "LanaTax — Solana Tax Calculator",
-    description:
-      "Paste your Solana wallet, see full transaction history, export tax-ready CSV. 100% on-device. No sign-up.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "https://tax.saneapps.com",
     siteName: "LanaTax",
     type: "website",
@@ -43,9 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LanaTax — Solana Tax Calculator",
-    description:
-      "Paste your Solana wallet, get tax-ready CSV. 100% free. No sign-up.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     site: "@saneapps",
     creator: "@saneapps",
   },

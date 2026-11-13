@@ -1,12 +1,14 @@
 // JSON-LD structured data for SEO
 // All content is hardcoded static strings — no user input, no injection risk.
 
+import { FAQ_ITEMS } from "@/lib/faq";
+
 const WEB_APP_SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "LanaTax",
   description:
-    "Free Solana tax calculator. View transaction history and export tax-ready CSV.",
+    "Free Solana tax calculator. Paste a wallet address, see transaction history with charts, export tax-ready CSV for Koinly and CoinLedger. Runs in your browser.",
   url: "https://tax.saneapps.com",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Any",
@@ -21,7 +23,7 @@ const WEB_APP_SCHEMA = JSON.stringify({
     "Tax-ready CSV export (Koinly/CoinLedger)",
     "Transaction type categorization",
     "Historical USD cost basis estimates",
-    "100% on-device processing",
+    "Runs in your browser, no LanaTax server",
     "Unlimited transactions",
   ],
   author: {
@@ -34,40 +36,11 @@ const WEB_APP_SCHEMA = JSON.stringify({
 const FAQ_SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What does LanaTax do?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "LanaTax reads your Solana wallet transaction history via the Helius API, categorizes each transaction by type, calculates estimated USD values, and exports everything as a tax-ready CSV file compatible with Koinly and CoinLedger.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is my data private?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. LanaTax runs entirely in your browser. Your wallet address, API key, and transaction data never leave your device, and there is no backend server or database storing them. The site uses privacy-respecting Cloudflare Web Analytics, but wallet data stays on your machine.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is LanaTax really free?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, completely free with no limits. Unlimited transactions, full CSV export, no paywalls, no subscriptions. LanaTax is a community tool by SaneApps.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Why do I need a Helius API key?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Helius provides detailed, parsed Solana transaction data. Their free tier gives you 100,000 API calls per month. Your browser talks directly to Helius, keeping your data private.",
-      },
-    },
-  ],
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
 });
 
 export function StructuredData() {

@@ -8,10 +8,10 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon">
     <meta name="theme-color" content="#08080c">
-    <link rel="canonical" href="https://tax.saneapps.com/how-to-export-solana-transactions-csv.html">
+    <link rel="canonical" href="https://tax.saneapps.com/how-to-export-solana-transactions-csv">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://tax.saneapps.com/how-to-export-solana-transactions-csv.html">
-    <meta property="og:title" content="How to Export Solana Transactions to CSV">
+    <meta property="og:url" content="https://tax.saneapps.com/how-to-export-solana-transactions-csv">
+    <meta property="og:title" content="How to Export Solana Transactions to CSV - LanaTax">
     <meta property="og:description" content="Step-by-step guide to exporting your complete Solana transaction history as a tax-ready CSV file using LanaTax.">
     <meta property="og:image" content="https://tax.saneapps.com/opengraph-image">
     <meta property="og:image:width" content="1200">
@@ -19,20 +19,86 @@
     <meta property="og:site_name" content="LanaTax">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@saneapps">
-    <meta name="twitter:title" content="How to Export Solana Transactions to CSV">
+    <meta name="twitter:title" content="How to Export Solana Transactions to CSV - LanaTax">
     <meta name="twitter:description" content="Step-by-step guide to exporting your complete Solana transaction history as a tax-ready CSV file using LanaTax.">
     <meta name="twitter:image" content="https://tax.saneapps.com/opengraph-image">
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Export Solana Transactions to CSV - LanaTax",
+  "description": "Step-by-step guide to exporting your complete Solana transaction history as a tax-ready CSV file using LanaTax.",
+  "author": {
+    "@type": "Organization",
+    "name": "SaneApps"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LanaTax",
+    "url": "https://tax.saneapps.com"
+  },
+  "datePublished": "2026-02-22",
+  "dateModified": "2026-11-12",
+  "mainEntityOfPage": "https://tax.saneapps.com/how-to-export-solana-transactions-csv"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "How to Export Solana Transactions to CSV",
-        "description": "Step-by-step guide to exporting your complete Solana transaction history as a tax-ready CSV file using LanaTax.",
-        "author": { "@type": "Organization", "name": "SaneApps" },
-        "publisher": { "@type": "Organization", "name": "LanaTax", "url": "https://tax.saneapps.com" },
-        "datePublished": "2026-02-22",
-        "dateModified": "2026-02-22"
+      "@type": "Question",
+      "name": "What columns are in the LanaTax CSV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Date, Type, Asset, Amount, Cost Basis (USD), Proceeds (USD), Fee (SOL), Transaction ID and Description. A few comment lines at the top say the file is for information only and is not tax advice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some rows say N/A for USD values?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LanaTax estimates USD values from daily SOL prices on CoinGecko. It can't price token-to-token swaps, and the free price data only covers the last 365 days, so those rows say N/A."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which dates does the export cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tax year you pick, from January 1 to December 31 (UTC). Pick another year and export again for each year you need."
+      }
     }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "LanaTax",
+      "item": "https://tax.saneapps.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://tax.saneapps.com/guides"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Export Solana Transactions to CSV",
+      "item": "https://tax.saneapps.com/how-to-export-solana-transactions-csv"
+    }
+  ]
+}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,6 +282,11 @@
 }
 
 
+        .faq h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--text-primary); margin: 24px 0 8px; }
+        .related { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .option-card.faq, .option-card.related-card { margin-top: 40px; }
+        .code-block { white-space: pre-wrap; }
+        .related a { color: var(--accent-light); text-decoration: none; padding: 10px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -226,7 +297,7 @@
                 LanaTax
             </a>
             <div class="nav-links">
-                <a href="/guides.html">All Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="/">Home</a>
             </div>
         </div>
@@ -275,23 +346,42 @@
                 <li><span class="icon-check">✓</span> <span>100% free — no subscription, no account, no credit card</span></li>
                 <li><span class="icon-check">✓</span> <span>Pulls complete history via the Helius API — handles wallets with thousands of transactions</span></li>
                 <li><span class="icon-check">✓</span> <span>Koinly and CoinLedger compatible CSV format — drop it straight into your tax software</span></li>
-                <li><span class="icon-check">✓</span> <span>Runs entirely in your browser — nothing is sent to or stored on any server</span></li>
-                <li><span class="icon-check">✓</span> <span>Includes timestamp, date, transaction type, asset, amount, fee (SOL), tx signature, and description</span></li>
+                <li><span class="icon-check">✓</span> <span>Runs in your browser. It fetches your history straight from Helius, and no LanaTax server sees or stores it</span></li>
+                <li><span class="icon-check">✓</span> <span>Includes date, type, asset, amount, estimated cost basis and proceeds in USD, fee (SOL), transaction ID and description</span></li>
                 <li><span class="icon-check">✓</span> <span>Categorizes common Solana transaction types: swaps, transfers, staking, NFTs, and more</span></li>
             </ul>
             <a href="/" class="cta-btn">Export Your Transactions — Free</a>
         </div>
 
         <div class="info-box">
-            <strong>What's in the CSV?</strong> Each row in the export includes: timestamp (Unix epoch), date (human-readable), transaction type (SWAP, TRANSFER, STAKE, NFT_SALE, etc.), asset symbol, amount, fee in SOL, transaction signature (for verification), description, and mint address for tokens. This maps directly to the columns your CPA or tax software needs.
+            <strong>What's in the CSV?</strong> Each row has the date and time, the type (BUY, SELL, TRANSFER_IN, TRANSFER_OUT, AIRDROP, STAKE, NFT_SALE and others), the asset, the amount, estimated cost basis and proceeds in USD (N/A where LanaTax can't price it), the fee in SOL, the transaction ID and a description. Each export covers the tax year you pick.
         </div>
 
         <div class="warning-box">
             <strong>A note on accuracy:</strong> No automated tool — free or paid — is perfect for every Solana transaction type. Exotic DeFi interactions, cross-program invocations, and obscure protocols may require manual review. Always spot-check your export against Solscan before handing it to your CPA.
         </div>
 
+        <div class="option-card faq">
+            <h2>Questions</h2>
+            <h3>What columns are in the LanaTax CSV?</h3>
+            <p>Date, Type, Asset, Amount, Cost Basis (USD), Proceeds (USD), Fee (SOL), Transaction ID and Description. A few comment lines at the top say the file is for information only and is not tax advice.</p>
+            <h3>Why do some rows say N/A for USD values?</h3>
+            <p>LanaTax estimates USD values from daily SOL prices on CoinGecko. It can't price token-to-token swaps, and the free price data only covers the last 365 days, so those rows say N/A.</p>
+            <h3>Which dates does the export cover?</h3>
+            <p>The tax year you pick, from January 1 to December 31 (UTC). Pick another year and export again for each year you need.</p>
+        </div>
+
+        <div class="option-card related-card">
+            <h2>Related guides</h2>
+            <div class="related">
+                <a href="/how-to-get-free-helius-api-key">Get a free Helius API key</a>
+                <a href="/how-to-import-solana-transactions-koinly">Import into Koinly</a>
+                <a href="/how-to-report-crypto-irs-form-8949">Report crypto on Form 8949</a>
+            </div>
+        </div>
+
         <div class="back-link">
-            <a href="/guides.html">← Back to All Guides</a>
+            <a href="/guides">← Back to All Guides</a>
         </div>
     </article>
 
@@ -299,7 +389,7 @@
         <div class="container">
             <div class="footer-links">
                 <a href="/">Home</a>
-                <a href="/guides.html">Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="https://saneapps.com">SaneApps</a>
                 <a href="mailto:hi@saneapps.com">Contact</a>
             </div>

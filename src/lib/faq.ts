@@ -1,0 +1,39 @@
+// Home page FAQ. Used by the visible FAQ section and the FAQPage JSON-LD.
+export const FAQ_ITEMS = [
+  {
+    q: "What does LanaTax do?",
+    a: "LanaTax reads your Solana wallet's full transaction history via the Helius API, categorizes each transaction by type (swap, transfer, airdrop, NFT sale, etc.), calculates estimated USD values using historical SOL prices, and exports everything as a tax-ready CSV file compatible with Koinly, CoinLedger, and other tax software.",
+  },
+  {
+    q: "What does LanaTax NOT do?",
+    a: "LanaTax is not a tax filing service. It does not file taxes for you, provide legal tax advice, or guarantee accuracy for IRS reporting. It does not track cross-chain transactions (only Solana), does not handle DeFi yield farming calculations, and does not store any data on servers. Always verify the output with a qualified tax professional.",
+  },
+  {
+    q: "Is my data private?",
+    a: "Yes. LanaTax runs entirely in your browser. Your wallet address, API key, and transaction data never leave your device, and there is no backend server or database storing them. The site uses privacy-respecting Cloudflare Web Analytics, but your wallet data and Helius API key stay on your machine and are only used for direct browser-to-Helius requests.",
+  },
+  {
+    q: "Why do I need a Helius API key?",
+    a: "Helius provides detailed, parsed Solana transaction data that's far richer than what the standard Solana RPC returns. Their free plan includes 1M credits a month, far more than a tax export needs. LanaTax doesn't proxy through any servers — your browser talks directly to Helius, keeping your data private.",
+  },
+  {
+    q: "Is LanaTax really free?",
+    a: "Yes — completely free with no limits, no paywalls, and no subscriptions. Unlimited transactions, full CSV export, everything. LanaTax is built by the SaneApps team as a community tool. If it saves you time, consider supporting us on GitHub Sponsors.",
+  },
+  {
+    q: "How accurate are the USD values?",
+    a: "USD values are estimated using daily SOL closing prices from CoinGecko. For SOL-denominated transactions, this is quite accurate. For token swaps, LanaTax shows the SOL fee value but cannot determine exact token-to-USD prices (the CSV marks these as N/A). CoinGecko's free tier only provides 365 days of history, so older transactions may not have USD values.",
+  },
+  {
+    q: "What tax year formats are supported?",
+    a: "LanaTax uses calendar year (Jan 1 - Dec 31, UTC) which is the standard for US tax reporting. You can select the tax year using the year picker. All timestamps are in UTC to avoid timezone ambiguity.",
+  },
+  {
+    q: "Can I connect my wallet instead of pasting an address?",
+    a: "Yes. Click \"Connect Wallet\" to connect Phantom, Solflare, or any Solana wallet extension. This auto-fills your wallet address. You still need a Helius API key since the wallet connection is only used for your address — LanaTax never requests transaction signing permissions.",
+  },
+  {
+    q: "Is LanaTax open source?",
+    a: "The code is fully transparent and inspectable. LanaTax is part of the SaneApps family — privacy-first tools with on-device processing by default. You can verify that wallet data is not sent to a backend by inspecting the network tab in your browser's developer tools.",
+  },
+];

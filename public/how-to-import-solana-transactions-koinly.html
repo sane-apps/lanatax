@@ -8,10 +8,10 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon">
     <meta name="theme-color" content="#08080c">
-    <link rel="canonical" href="https://tax.saneapps.com/how-to-import-solana-transactions-koinly.html">
+    <link rel="canonical" href="https://tax.saneapps.com/how-to-import-solana-transactions-koinly">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://tax.saneapps.com/how-to-import-solana-transactions-koinly.html">
-    <meta property="og:title" content="How to Import Solana Transactions into Koinly">
+    <meta property="og:url" content="https://tax.saneapps.com/how-to-import-solana-transactions-koinly">
+    <meta property="og:title" content="How to Import Solana Transactions into Koinly - LanaTax">
     <meta property="og:description" content="Export your Solana transaction history from LanaTax and import it into Koinly for automated tax calculations. Step-by-step guide.">
     <meta property="og:image" content="https://tax.saneapps.com/opengraph-image">
     <meta property="og:image:width" content="1200">
@@ -19,20 +19,86 @@
     <meta property="og:site_name" content="LanaTax">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@saneapps">
-    <meta name="twitter:title" content="How to Import Solana Transactions into Koinly">
+    <meta name="twitter:title" content="How to Import Solana Transactions into Koinly - LanaTax">
     <meta name="twitter:description" content="Export your Solana transaction history from LanaTax and import it into Koinly for automated tax calculations. Step-by-step guide.">
     <meta name="twitter:image" content="https://tax.saneapps.com/opengraph-image">
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Import Solana Transactions into Koinly - LanaTax",
+  "description": "Export your Solana transaction history from LanaTax and import it into Koinly for automated tax calculations. Step-by-step guide.",
+  "author": {
+    "@type": "Organization",
+    "name": "SaneApps"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LanaTax",
+    "url": "https://tax.saneapps.com"
+  },
+  "datePublished": "2026-02-22",
+  "dateModified": "2026-11-12",
+  "mainEntityOfPage": "https://tax.saneapps.com/how-to-import-solana-transactions-koinly"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "How to Import Solana Transactions into Koinly",
-        "description": "Export your Solana transaction history from LanaTax and import it into Koinly for automated tax calculations. Step-by-step guide.",
-        "author": { "@type": "Organization", "name": "SaneApps" },
-        "publisher": { "@type": "Organization", "name": "LanaTax", "url": "https://tax.saneapps.com" },
-        "datePublished": "2026-02-22",
-        "dateModified": "2026-02-22"
+      "@type": "Question",
+      "name": "Does LanaTax send my data to Koinly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. LanaTax downloads a CSV file to your computer. You decide whether to upload it to Koinly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export more than one wallet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, one at a time. Run LanaTax for each wallet address and export a separate CSV for each."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the CSV cover every year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Each export covers the one tax year you pick, January 1 to December 31 (UTC). Export each year you need."
+      }
     }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "LanaTax",
+      "item": "https://tax.saneapps.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://tax.saneapps.com/guides"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Import Solana Transactions into Koinly",
+      "item": "https://tax.saneapps.com/how-to-import-solana-transactions-koinly"
+    }
+  ]
+}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -217,6 +283,11 @@
 }
 
 
+        .faq h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--text-primary); margin: 24px 0 8px; }
+        .related { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .option-card.faq, .option-card.related-card { margin-top: 40px; }
+        .code-block { white-space: pre-wrap; }
+        .related a { color: var(--accent-light); text-decoration: none; padding: 10px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -227,7 +298,7 @@
                 LanaTax
             </a>
             <div class="nav-links">
-                <a href="/guides.html">All Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="/">Home</a>
             </div>
         </div>
@@ -261,7 +332,7 @@
                 <li><span class="step-number">5</span> On the wallet page, click <strong>"Import from file"</strong> and upload the LanaTax CSV. Koinly will process all transactions and calculate gains and losses.</li>
             </ul>
             <ul style="margin-top: 32px;">
-                <li><span class="icon-check">&#10003;</span> LanaTax CSV is compatible with Koinly's universal CSV import format</li>
+                <li><span class="icon-check">&#10003;</span> A plain CSV with one row per transaction, easy to check or adjust in a spreadsheet first</li>
                 <li><span class="icon-check">&#10003;</span> Helius-enriched categorization means fewer UNKNOWN transactions to manually fix</li>
                 <li><span class="icon-check">&#10003;</span> You control what data leaves your machine — no wallet connection required</li>
                 <li><span class="icon-check">&#10003;</span> Completely free — LanaTax charges nothing for the export</li>
@@ -270,23 +341,17 @@
         </div>
 
         <div class="option-card">
-            <h2>CSV Column Mapping <span class="badge">LanaTax → Koinly</span></h2>
-            <p>Koinly's universal CSV format expects specific column names. LanaTax exports map directly to these fields, which is why the import works without any manual column remapping.</p>
-            <div class="code-block">
-LanaTax Column         → Koinly Field
-─────────────────────────────────────────────────
-timestamp              → Date
-type                   → Label (BUY / SELL / TRANSFER / etc.)
-asset                  → Currency
-amount                 → Amount
-value_usd              → Net Worth Amount (USD)
-fee_sol                → Fee Amount + Fee Currency (SOL)
-signature              → TxHash
-description            → Description (used for Koinly notes)
-
-Example row (as it appears in the CSV):
-2025-11-14T18:32:00Z, SWAP, SOL, 5.0, 750.00, 0.000025, abc123..., Swap on Jupiter
-            </div>
+            <h2>CSV Columns <span class="badge">What LanaTax exports</span></h2>
+            <p>The LanaTax CSV has the columns below. Koinly's own CSV templates may use other column names, so check its import screen and match the columns if it asks.</p>
+            <div class="code-block">Date: date and time of the transaction
+Type: BUY, SELL, TRANSFER_IN, TRANSFER_OUT, AIRDROP, STAKE, NFT_SALE and others
+Asset: token symbol
+Amount: quantity
+Cost Basis (USD): estimate, or N/A
+Proceeds (USD): estimate, or N/A
+Fee (SOL): network fee
+Transaction ID: Solana transaction signature
+Description: short summary</div>
             <p>Koinly uses the TxHash field to deduplicate transactions, so if you import the same wallet multiple times (via direct sync and CSV), Koinly will merge duplicates rather than double-count them. That said, it's cleaner to use one method consistently per wallet.</p>
         </div>
 
@@ -298,21 +363,40 @@ Example row (as it appears in the CSV):
                 <li><span class="icon-check">&#10003;</span> <strong>Fix UNKNOWN transactions in Koinly after import.</strong> Koinly lets you manually set the type for any transaction. UNKNOWN transactions are flagged in the review queue — go through each one and assign the correct label.</li>
                 <li><span class="icon-check">&#10003;</span> <strong>Koinly review prompts are normal.</strong> After import, Koinly will often highlight transactions it wants you to review. This doesn't mean anything went wrong — it's asking you to confirm categorizations it's uncertain about.</li>
                 <li><span class="icon-check">&#10003;</span> <strong>For multiple wallets, export each separately.</strong> Run LanaTax once for each Solana wallet address, export a separate CSV for each, and import each CSV into a separate Koinly wallet. Don't merge CSVs manually.</li>
-                <li><span class="icon-check">&#10003;</span> <strong>Check your date range.</strong> LanaTax fetches your full available history. If Koinly already has some transactions from a previous direct sync, watch for the duplication notice. Koinly handles this gracefully via TxHash matching, but it's worth confirming.</li>
-                <li><span class="icon-neutral">&#8212;</span> <strong>Note your tax year.</strong> Koinly calculates gains across all years in your import. If you only need one tax year, you can filter in Koinly's reports — you don't need to trim the CSV beforehand.</li>
+                <li><span class="icon-check">&#10003;</span> <strong>Check your date range.</strong> Each LanaTax export covers the one tax year you pick. If Koinly already has some transactions from a previous direct sync, watch for the duplication notice. Koinly handles this gracefully via TxHash matching, but it's worth confirming.</li>
+                <li><span class="icon-neutral">&#8212;</span> <strong>Note your tax year.</strong> Koinly calculates gains across all years in your import, and each LanaTax export covers one calendar year. Export every year you want Koinly to see.</li>
             </ul>
         </div>
 
         <div class="info-box">
-            <strong>Compatibility note:</strong> LanaTax exports are designed to work with Koinly, CoinLedger, and most major tax tools that accept CSV imports. The format follows the universal crypto CSV standard with timestamp, type, asset, amount, value, and fee columns. If your tax tool has specific column name requirements, the CSV is plain text and easy to adapt in any spreadsheet application.
+            <strong>Compatibility note:</strong> LanaTax exports are designed to work with Koinly, CoinLedger, and most major tax tools that accept CSV imports. The CSV has Date, Type, Asset, Amount, Cost Basis (USD), Proceeds (USD), Fee (SOL), Transaction ID and Description columns. If your tax tool has specific column name requirements, the CSV is plain text and easy to adapt in any spreadsheet application.
         </div>
 
         <div style="text-align: center; margin-top: 40px;">
             <a href="/" class="cta-btn">Export Your Solana Transactions Now — Free</a>
         </div>
 
+        <div class="option-card faq">
+            <h2>Questions</h2>
+            <h3>Does LanaTax send my data to Koinly?</h3>
+            <p>No. LanaTax downloads a CSV file to your computer. You decide whether to upload it to Koinly.</p>
+            <h3>Can I export more than one wallet?</h3>
+            <p>Yes, one at a time. Run LanaTax for each wallet address and export a separate CSV for each.</p>
+            <h3>Does the CSV cover every year?</h3>
+            <p>No. Each export covers the one tax year you pick, January 1 to December 31 (UTC). Export each year you need.</p>
+        </div>
+
+        <div class="option-card related-card">
+            <h2>Related guides</h2>
+            <div class="related">
+                <a href="/how-to-export-solana-transactions-csv">Export transactions to CSV</a>
+                <a href="/how-to-get-free-helius-api-key">Get a free Helius API key</a>
+                <a href="/how-to-report-crypto-irs-form-8949">Report crypto on Form 8949</a>
+            </div>
+        </div>
+
         <div class="back-link">
-            <a href="/guides.html">&larr; Back to all guides</a>
+            <a href="/guides">&larr; Back to all guides</a>
         </div>
     </article>
 
@@ -320,7 +404,7 @@ Example row (as it appears in the CSV):
         <div class="container">
             <div class="footer-links">
                 <a href="/">Home</a>
-                <a href="/guides.html">Guides</a>
+                <a href="/guides">All Guides</a>
                 <a href="https://saneapps.com">SaneApps</a>
                 <a href="mailto:hi@saneapps.com">Contact</a>
             </div>
